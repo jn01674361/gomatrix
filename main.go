@@ -6,6 +6,6 @@ import(
 )
 
 func main() {
-    mat := gomatrix.Initialize(2,2)
+    mat := gomatrix.NewMatrix(2,2)
     fmt.Println(mat)
 }

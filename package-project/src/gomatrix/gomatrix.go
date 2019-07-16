@@ -4,7 +4,7 @@ type Matrix struct{
 	Matrix [][]float64
 } 
 
-func Initialize(m,n int) Matrix {
+func NewMatrix(m,n int) Matrix {
 
 	mat := make([][]float64, m)
 
@@ -17,7 +17,3 @@ func Initialize(m,n int) Matrix {
 	}
 	return ret
 }
-
-// func ones(m,n int) Matrix {
-// 	return Matrix{rows:1,cols:1, Matrix:{{1}}}
-// }
