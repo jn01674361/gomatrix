@@ -1,4 +1,4 @@
-package goMatrix
+package gomatrix
 
 type Matrix struct{
 	Matrix [][]float64
