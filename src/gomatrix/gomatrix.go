@@ -26,7 +26,7 @@ func Cols(A Matrix) int {
 // returns a matrix with m rows and n columns, filled with zeros
 // in: number of rows, columns
 /// out: matrix object
-func NewMatrix(m,n int) Matrix {
+func Zeros(m,n int) Matrix {
 	mat := make([][]float64, m)
 	for row:=0; row<m; row++{
 		mat[row] = make([]float64, n)
@@ -35,6 +35,29 @@ func NewMatrix(m,n int) Matrix {
 		Matrix: mat,
 	}
 	return ret
+}
+// returns a matrix object from a 2d-float array.
+// in: 2d float64 array
+// out: matrix object with same element as input array
+func ToMatrix(A [][]float64) Matrix {
+	var n int
+	m := len(A);
+	if m < 1 {
+		return Zeros(m,n)
+	} 	
+	n = len(A[1])
+	mat := make([][]float64, m)
+	for i := 0; i < m; i++ {
+		row := make([]float64, n)
+
+		for j:=0; j < n; j++{
+			row[j] = A[i][j] 
+		}
+		mat[i] = row
+	}
+	return Matrix{
+		Matrix: mat,
+	}
 }
 // returns the matrix product of two matrices
 // in: two matrices 
@@ -47,11 +70,11 @@ func MatMul(A,B Matrix) Matrix {
 	n2 = Rows(B)
 	p = Cols(B)
 	if n1 != n2 {
-		return NewMatrix(0,0)
+		return Zeros(0,0)
 	} else if !(m > 0 && n1 > 0 && n2 > 0 && p > 0) {
-		return NewMatrix(0,0)
+		return Zeros(0,0)
 	} else{
-		C := NewMatrix(m,p)
+		C := Zeros(m,p)
 		for i := 0; i < m; i++ {
 			for j := 0; j < p; j++ {
 				for k := 0; k < n1; k++ {
