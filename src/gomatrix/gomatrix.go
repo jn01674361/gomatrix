@@ -4,6 +4,7 @@ import "fmt"
 
 type Matrix struct{
 	Matrix [][]float64
+	// Inverse [][]float64 //http://www.irma-international.org/viewtitle/41011/
 } 
 // returns the number of rows of a matrix
 // in: the matrix
@@ -101,3 +102,12 @@ func PrintMat(A Matrix) {
 	fmt.Println()
 
 }
+// func Inverse(A Matrix)[][]float64 {
+// 	if len(A.Inverse) > 1{
+// 		return A.Inverse
+// 	} else{ 
+// 		// calculate inverse
+// 		// change A so that A.Inverse is correct
+// 		return A.Inverse
+// 	}
+// }
