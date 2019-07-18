@@ -32,14 +32,16 @@ func main() {
 
 func test() {
     
-    jsonInput := []byte(`[{"Elements": [1.0,2.0]},{"Elements": [3.0, 4.0]}]`)
+    // jsonInput := []byte(`[{"Elements": [1.0,2.0]},{"Elements": [3.0, 4.0]}]`)
 
-    var jMat jsonMatrix
+    jsonArr := []byte(`[[1.0,2.0],[3.0,4.0]]`)
 
-    err := json.Unmarshal(jsonInput, &jMat)
+    var jArr [][]float64
 
+    err := json.Unmarshal(jsonArr, &jArr)
     if err != nil{
         log.Println(err)
     }
-    fmt.Println(jMat.Rows)
+    fmt.Println(jArr)
+
 }
